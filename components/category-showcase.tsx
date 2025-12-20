@@ -1,5 +1,5 @@
-import Image from "next/image"
-import Link from "next/link"
+import Image from "next/image";
+import Link from "next/link";
 
 const categories = [
   {
@@ -33,12 +33,12 @@ const categories = [
     href: "/danh-muc/ngheu-so",
   },
   {
-    name: "Rau củ đông lạnh",
-    count: 68,
-    image: "/frozen-vegetables-mix.jpg",
-    href: "/danh-muc/rau-cu",
+    name: "Mực - Bạch tuộc",
+    count: 32,
+    image: "/squid-and-octopus.jpg",
+    href: "/danh-muc/muc",
   },
-]
+];
 
 export function CategoryShowcase() {
   return (
@@ -46,8 +46,12 @@ export function CategoryShowcase() {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-10 lg:mb-14">
-          <span className="text-sm font-medium text-gold-dark tracking-wider uppercase">Khám phá</span>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-navy mt-2">Danh Mục Nổi Bật</h2>
+          <span className="text-sm font-medium text-gold-dark tracking-wider uppercase">
+            Khám phá
+          </span>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-navy mt-2">
+            Danh Mục Nổi Bật
+          </h2>
         </div>
 
         {/* Categories grid */}
@@ -66,13 +70,17 @@ export function CategoryShowcase() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/20 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-4 text-primary-foreground">
-                <h3 className="font-semibold text-sm lg:text-base mb-1">{category.name}</h3>
-                <p className="text-xs text-primary-foreground/70">{category.count} sản phẩm</p>
+                <h3 className="font-semibold text-sm lg:text-base mb-1">
+                  {category.name}
+                </h3>
+                <p className="text-xs text-primary-foreground/70">
+                  {category.count} sản phẩm
+                </p>
               </div>
             </Link>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }

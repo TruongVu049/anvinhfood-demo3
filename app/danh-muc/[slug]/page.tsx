@@ -1,14 +1,14 @@
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
-import { CategoryPage } from "@/components/category-page"
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
+import { CategoryPage } from "@/components/category-page";
 
 // Mock data for categories
 const categoryData: Record<
   string,
   {
-    name: string
-    description: string
-    subcategories: { name: string; slug: string; count: number }[]
+    name: string;
+    description: string;
+    subcategories: { name: string; slug: string; count: number }[];
   }
 > = {
   "hai-san": {
@@ -16,44 +16,46 @@ const categoryData: Record<
     description:
       "Hải sản đông lạnh cao cấp, nhập khẩu từ các vùng biển sạch trên thế giới. Cam kết tươi ngon, an toàn thực phẩm.",
     subcategories: [
-      { name: "Tôm các loại", slug: "tom", count: 56 },
-      { name: "Cá hồi - Cá ngừ", slug: "ca", count: 45 },
-      { name: "Cua - Ghẹ", slug: "cua", count: 28 },
-      { name: "Mực - Bạch tuộc", slug: "muc", count: 32 },
-      { name: "Nghêu - Sò - Hàu", slug: "ngheu-so", count: 25 },
+      { name: "Tôm các loại", slug: "tom-cac-loai", count: 56 },
+      { name: "Cá hồi - Cá ngừ", slug: "ca-hoi-ca-ngu", count: 45 },
+      { name: "Cua - Ghẹ", slug: "cua-ghe", count: 28 },
+      { name: "Mực - Bạch tuộc", slug: "muc-bach-tuoc", count: 32 },
+      { name: "Nghêu - Sò - Hàu", slug: "ngheu-so-hau", count: 25 },
     ],
   },
-  thit: {
-    name: "Thịt Đông Lạnh",
-    description: "Thịt nhập khẩu từ Mỹ, Úc, Nhật Bản. Chất lượng cao, đạt tiêu chuẩn quốc tế.",
+  "tom-dong-lanh": {
+    name: "Tôm Đông Lạnh",
+    description:
+      "Tôm đông lạnh cao cấp, tươi ngon từ các nguồn cung ứng uy tín. Đảm bảo chất lượng và an toàn thực phẩm.",
     subcategories: [
-      { name: "Thịt bò nhập khẩu", slug: "bo", count: 38 },
-      { name: "Thịt heo", slug: "heo", count: 25 },
-      { name: "Thịt gà", slug: "ga", count: 30 },
-      { name: "Thịt cừu", slug: "cuu", count: 15 },
+      { name: "Tôm sú", slug: "tom-su", count: 35 },
+      { name: "Tôm thẻ", slug: "tom-the", count: 28 },
+      { name: "Tôm hùm", slug: "tom-hum", count: 20 },
+      { name: "Tôm càng xanh", slug: "tom-cang-xanh", count: 22 },
+      { name: "Tôm hắp", slug: "tom-hap", count: 18 },
     ],
   },
-  "rau-cu": {
-    name: "Rau Củ Đông Lạnh",
-    description: "Rau củ đông lạnh giữ nguyên dinh dưỡng, tiện lợi cho mọi bữa ăn.",
+  "ca-hoi": {
+    name: "Cá Hồi",
+    description:
+      "Cá hồi Na Uy, Canada cao cấp. Thịt cá tươi ngon, giàu Omega-3, tốt cho sức khỏe.",
     subcategories: [
-      { name: "Rau lá xanh", slug: "rau-la", count: 20 },
-      { name: "Đậu các loại", slug: "dau", count: 18 },
-      { name: "Khoai - Củ", slug: "khoai-cu", count: 15 },
-      { name: "Mix rau củ", slug: "mix", count: 15 },
+      { name: "Vay cá hồi", slug: "vay-ca-hoi", count: 25 },
+      { name: "Lườn cá hồi", slug: "luon-ca-hoi", count: 30 },
     ],
   },
-  "che-bien": {
-    name: "Đồ Ăn Chế Biến",
-    description: "Sản phẩm chế biến sẵn, tiện lợi, chỉ cần hâm nóng là dùng được ngay.",
+  "thuc-pham-dong-lanh": {
+    name: "Thực Phẩm Đông Lạnh",
+    description:
+      "Các sản phẩm thực phẩm đông lạnh chế biến sẵn, tiện lợi và nhanh chóng.",
     subcategories: [
-      { name: "Há cảo - Sủi cảo", slug: "ha-cao", count: 22 },
-      { name: "Chả giò - Nem", slug: "cha-gio", count: 18 },
-      { name: "Dimsum", slug: "dimsum", count: 25 },
-      { name: "Bánh các loại", slug: "banh", count: 20 },
+      { name: "Chả cá", slug: "cha-ca", count: 22 },
+      { name: "Hải sản chế biến sẵn", slug: "hai-san-che-bien-san", count: 28 },
+      { name: "Combo tiện lợi", slug: "combo-tien-loi", count: 18 },
+      { name: "Đồ ăn nhanh", slug: "do-an-nhanh", count: 20 },
     ],
   },
-}
+};
 
 // Mock products
 const products = [
@@ -130,15 +132,19 @@ const products = [
     image: "/crab-and-blue-crab.jpg",
     unit: "Kg",
   },
-]
+];
 
-export default async function CategoryDetailPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params
+export default async function CategoryDetailPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
   const category = categoryData[slug] || {
     name: "Danh mục sản phẩm",
     description: "Khám phá các sản phẩm chất lượng cao của An Vinh Food",
     subcategories: [],
-  }
+  };
 
   return (
     <div className="min-h-screen">
@@ -148,5 +154,5 @@ export default async function CategoryDetailPage({ params }: { params: Promise<{
       </main>
       <Footer />
     </div>
-  )
+  );
 }

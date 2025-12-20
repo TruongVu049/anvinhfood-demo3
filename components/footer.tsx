@@ -1,5 +1,13 @@
-import Link from "next/link"
-import { Facebook, Instagram, Youtube, Phone, Mail, MapPin } from "lucide-react"
+import Link from "next/link";
+import {
+  Facebook,
+  Instagram,
+  Youtube,
+  Phone,
+  Mail,
+  MapPin,
+} from "lucide-react";
+import Image from "next/image";
 
 const footerLinks = {
   "Đặt hàng & Hỗ trợ": [
@@ -24,13 +32,13 @@ const footerLinks = {
     { name: "Quy trình sản xuất", href: "/quy-trinh-san-xuat" },
     { name: "Đối tác cung ứng", href: "/doi-tac" },
   ],
-}
+};
 
 const socialLinks = [
   { name: "Facebook", icon: Facebook, href: "https://facebook.com" },
   { name: "Instagram", icon: Instagram, href: "https://instagram.com" },
   { name: "Youtube", icon: Youtube, href: "https://youtube.com" },
-]
+];
 
 export function Footer() {
   return (
@@ -40,28 +48,37 @@ export function Footer() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="inline-block mb-4">
-              <div className="flex flex-col">
-                <span className="text-2xl font-serif font-bold text-gold tracking-tight">AN VINH</span>
-                <span className="text-xs tracking-[0.2em] text-primary-foreground/70 uppercase">Frozen Food</span>
+              <div className=" relative z-10flex items-center gap-2">
+                <Image
+                  src="/logo.png"
+                  alt="Frozen Food Logo"
+                  width={48}
+                  height={48}
+                  className="w-44 h-auto object-contain"
+                />
               </div>
             </Link>
             <p className="text-sm text-primary-foreground/70 mb-6 leading-relaxed">
-              Chuyên cung cấp thực phẩm đông lạnh và hải sản cao cấp. Cam kết tươi ngon, an toàn, giao hàng nhanh.
+              Chuyên cung cấp thực phẩm đông lạnh và hải sản cao cấp. Cam kết
+              tươi ngon, an toàn, giao hàng nhanh.
             </p>
 
             {/* Contact info */}
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-sm">
                 <Phone className="h-4 w-4 text-gold" />
-                <span>0813.662.778</span>
+                <span>0813662778</span>
               </div>
               <div className="flex items-center gap-3 text-sm">
                 <Mail className="h-4 w-4 text-gold" />
-                <span>info@anvinhfood.com</span>
+                <span>anvinhfood.official@gmail.com</span>
               </div>
               <div className="flex items-start gap-3 text-sm">
                 <MapPin className="h-4 w-4 text-gold flex-shrink-0 mt-0.5" />
-                <span className="text-primary-foreground/70">123 Đường ABC, Quận XYZ, TP. Hồ Chí Minh</span>
+                <span className="text-primary-foreground/70">
+                  87/23 Khu phố 4, đường Phan Văn Hớn, Phường Tân Thới Nhất,
+                  Quận 12, Tp HCM
+                </span>
               </div>
             </div>
           </div>
@@ -90,8 +107,12 @@ export function Footer() {
         <div className="border-t border-primary-foreground/10 mt-12 pt-8">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div className="text-sm text-primary-foreground/50">
-              <p className="font-semibold text-primary-foreground/70 mb-1">CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ AN VINH</p>
-              <p>GPKD số: 0123456789 - Cấp ngày: 01/01/2020 tại Sở KH&ĐT TP.HCM</p>
+              <p className="font-semibold text-primary-foreground/70 mb-1">
+                CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ AN VINH
+              </p>
+              <p>
+                GPKD số: 0123456789 - Cấp ngày: 01/01/2020 tại Sở KH&ĐT TP.HCM
+              </p>
               <p>Địa chỉ: 123 Đường ABC, Phường XYZ, Quận 1, TP. Hồ Chí Minh</p>
             </div>
 
@@ -118,5 +139,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

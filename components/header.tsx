@@ -1,36 +1,56 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import { Search, User, ShoppingBag, Menu, X, Phone, Clock, ChevronDown } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+import { useState } from "react";
+import Link from "next/link";
+import {
+  Search,
+  User,
+  ShoppingBag,
+  Menu,
+  X,
+  Phone,
+  Clock,
+  ChevronDown,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 const categories = [
   {
     name: "Hải sản tươi sống",
     href: "/danh-muc/hai-san",
-    items: ["Tôm các loại", "Cá hồi - Cá ngừ", "Cua - Ghẹ", "Mực - Bạch tuộc", "Nghêu - Sò - Hàu"],
+    items: [
+      "Tôm các loại",
+      "Cá hồi - Cá ngừ",
+      "Cua - Ghẹ",
+      "Mực - Bạch tuộc",
+      "Nghêu - Sò - Hàu",
+    ],
   },
-  { name: "Thịt đông lạnh", href: "/danh-muc/thit", items: ["Thịt bò nhập khẩu", "Thịt heo", "Thịt gà", "Thịt cừu"] },
   {
-    name: "Rau củ đông lạnh",
-    href: "/danh-muc/rau-cu",
-    items: ["Rau lá xanh", "Đậu các loại", "Khoai - Củ", "Mix rau củ"],
+    name: "Tôm đông lạnh",
+    href: "/danh-muc/tom-dong-lanh",
+    items: ["Tôm sú", "Tôm thẻ", "Tôm hùm", "Tôm càng xanh", "Tôm hắp"],
   },
   {
-    name: "Đồ ăn chế biến",
-    href: "/danh-muc/che-bien",
-    items: ["Há cảo - Sủi cảo", "Chả giò - Nem", "Dimsum", "Bánh các loại"],
+    name: "Cá hồi",
+    href: "/danh-muc/ca-hoi",
+    items: ["Vay cá hồi", "Lườn cá hồi"],
   },
-]
+  {
+    name: "Thực phẩm đông lạnh",
+    href: "/danh-muc/thuc-pham-dong-lanh",
+    items: ["Chả cá", "Hải sản chế biến sẵn", "Combo tiện lợi", "Đồ ăn nhanh"],
+  },
+];
 
 export function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [activeCategory, setActiveCategory] = useState<string | null>(null)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
   return (
-    <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-sm">
+    <header className="bg-card/95 backdrop-blur-sm z-50 relative">
       {/* Top bar */}
       <div className="bg-navy text-primary-foreground">
         <div className="container mx-auto px-4">
@@ -46,30 +66,51 @@ export function Header() {
               </div>
             </div>
             <div className="hidden sm:block">
-              <span className="text-gold">Miễn phí giao hàng đơn từ 500.000đ</span>
+              <span className="text-gold">
+                Miễn phí giao hàng đơn từ 500.000đ
+              </span>
             </div>
           </div>
         </div>
       </div>
 
       {/* Main header */}
-      <div className="border-b border-border">
+      <div className="relative">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-16 md:h-20">
+          <div className="flex items-center justify-between">
             {/* Mobile menu button */}
-            <button className="lg:hidden p-2 -ml-2" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle menu">
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            <button
+              className="lg:hidden p-2 -ml-2"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </button>
 
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2">
-              <div className="flex flex-col items-center">
-                <span className="text-xl md:text-2xl font-serif font-bold text-navy tracking-tight">AN VINH</span>
-                <span className="text-[10px] md:text-xs tracking-[0.2em] text-muted-foreground uppercase">
-                  Frozen Food
-                </span>
-              </div>
-            </Link>
+            <div className="relative py-3 pr-10">
+              <div
+                className="absolute inset-0 bg-navy h-full w-full bg-gradient-to-br from-navy to-navy-light
+        skew-x-[-20deg]
+        origin-top
+        pointer-events-none"
+              />
+              <Link href="/" className="h-full flex items-center gap-2">
+                <div className=" relative z-10flex items-center gap-2">
+                  <Image
+                    src="/logo.png"
+                    alt="Frozen Food Logo"
+                    width={48}
+                    height={48}
+                    className="w-44 h-auto object-contain"
+                  />
+                </div>
+              </Link>
+            </div>
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-8">
@@ -91,14 +132,14 @@ export function Header() {
                   {/* Dropdown */}
                   <div
                     className={cn(
-                      "absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200",
+                      "absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50"
                     )}
                   >
                     <div className="bg-card rounded-lg shadow-xl border border-border py-3 min-w-[200px]">
                       {category.items.map((item) => (
                         <Link
                           key={item}
-                          href={`${category.href}/${item.toLowerCase().replace(/\s+/g, "-")}`}
+                          href={`${category.href}`}
                           className="block px-4 py-2 text-sm text-foreground hover:bg-cream hover:text-navy-light transition-colors"
                         >
                           {item}
@@ -144,11 +185,11 @@ export function Header() {
       {/* Mobile menu */}
       <div
         className={cn(
-          "lg:hidden fixed inset-0 top-[104px] bg-card z-40 transition-transform duration-300",
-          isMenuOpen ? "translate-x-0" : "-translate-x-full",
+          "lg:hidden fixed inset-0 top-[104px]  transition-transform duration-300",
+          isMenuOpen ? "translate-x-0" : "-translate-x-full"
         )}
       >
-        <nav className="container mx-auto px-4 py-6">
+        <nav className="container mx-auto px-4 py-6 bg-white">
           <div className="space-y-4">
             {categories.map((category) => (
               <div key={category.name} className="border-b border-border pb-4">
@@ -163,7 +204,7 @@ export function Header() {
                   {category.items.map((item) => (
                     <Link
                       key={item}
-                      href={`${category.href}/${item.toLowerCase().replace(/\s+/g, "-")}`}
+                      href={category.href}
                       className="text-sm text-muted-foreground hover:text-navy-light"
                       onClick={() => setIsMenuOpen(false)}
                     >
@@ -191,5 +232,5 @@ export function Header() {
         </nav>
       </div>
     </header>
-  )
+  );
 }

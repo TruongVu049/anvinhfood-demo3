@@ -1,22 +1,22 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import Image from "next/image"
-import { ArrowRight, Mail } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import { useState } from "react";
+import Image from "next/image";
+import { ArrowRight, Mail } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 export function Newsletter() {
-  const [email, setEmail] = useState("")
+  const [email, setEmail] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     // Handle newsletter signup
-    console.log("Newsletter signup:", email)
-    setEmail("")
-  }
+    console.log("Newsletter signup:", email);
+    setEmail("");
+  };
 
   return (
     <section className="py-16 lg:py-24">
@@ -25,7 +25,7 @@ export function Newsletter() {
           {/* Image */}
           <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-[400px]">
             <Image
-              src="/placeholder.svg?height=600&width=800"
+              src="/banner3.png"
               alt="Happy family cooking"
               fill
               className="object-cover"
@@ -41,7 +41,8 @@ export function Newsletter() {
               Đăng ký để nhận thông tin khuyến mãi sớm nhất
             </h2>
             <p className="text-muted-foreground mb-8">
-              Nhận ngay voucher giảm 50.000đ cho đơn hàng đầu tiên và cập nhật ưu đãi hấp dẫn mỗi tuần!
+              Nhận ngay voucher giảm 50.000đ cho đơn hàng đầu tiên và cập nhật
+              ưu đãi hấp dẫn mỗi tuần!
             </p>
 
             <form onSubmit={handleSubmit} className="flex gap-3">
@@ -66,12 +67,12 @@ export function Newsletter() {
             </form>
 
             <p className="text-xs text-muted-foreground mt-4">
-              Đăng ký để nhận thông tin liên lạc về các sản phẩm, dịch vụ, cửa hàng, sự kiện và các vấn đề đáng quan tâm
-              của An Vinh Food.
+              Đăng ký để nhận thông tin liên lạc về các sản phẩm, dịch vụ, cửa
+              hàng, sự kiện và các vấn đề đáng quan tâm của An Vinh Food.
             </p>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

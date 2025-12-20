@@ -1,37 +1,48 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import { ChevronRight, Grid3X3, LayoutList, SlidersHorizontal } from "lucide-react"
-import { ProductCard } from "./product-card"
-import { Button } from "@/components/ui/button"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { cn } from "@/lib/utils"
+import { useState } from "react";
+import Link from "next/link";
+import {
+  ChevronRight,
+  Grid3X3,
+  LayoutList,
+  SlidersHorizontal,
+} from "lucide-react";
+import { ProductCard } from "./product-card";
+import { Button } from "@/components/ui/button";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { cn } from "@/lib/utils";
 
 interface Product {
-  id: string
-  name: string
-  description: string
-  price: number
-  originalPrice?: number
-  image: string
-  badge?: string
-  unit?: string
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  originalPrice?: number;
+  image: string;
+  badge?: string;
+  unit?: string;
 }
 
 interface CategoryPageProps {
   category: {
-    name: string
-    description: string
-    subcategories: { name: string; slug: string; count: number }[]
-  }
-  products: Product[]
-  slug: string
+    name: string;
+    description: string;
+    subcategories: { name: string; slug: string; count: number }[];
+  };
+  products: Product[];
+  slug: string;
 }
 
 export function CategoryPage({ category, products, slug }: CategoryPageProps) {
-  const [viewMode, setViewMode] = useState<"grid" | "list">("grid")
-  const [sortBy, setSortBy] = useState("featured")
+  const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
+  const [sortBy, setSortBy] = useState("featured");
 
   return (
     <div className="min-h-screen bg-background">
@@ -39,7 +50,10 @@ export function CategoryPage({ category, products, slug }: CategoryPageProps) {
       <div className="bg-cream border-b border-border">
         <div className="container mx-auto px-4 py-3">
           <nav className="flex items-center gap-2 text-sm">
-            <Link href="/" className="text-muted-foreground hover:text-foreground">
+            <Link
+              href="/"
+              className="text-muted-foreground hover:text-foreground"
+            >
               Trang chủ
             </Link>
             <ChevronRight className="h-4 w-4 text-muted-foreground" />
@@ -51,9 +65,15 @@ export function CategoryPage({ category, products, slug }: CategoryPageProps) {
       {/* Category Header */}
       <div className="bg-cream py-8 lg:py-12">
         <div className="container mx-auto px-4">
-          <span className="text-xs font-semibold text-navy tracking-[0.2em] uppercase">{category.name}</span>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-navy mt-2 mb-4">{category.name}</h1>
-          <p className="text-muted-foreground max-w-2xl">{category.description}</p>
+          <span className="text-xs font-semibold text-navy tracking-[0.2em] uppercase">
+            {category.name}
+          </span>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-navy mt-2 mb-4">
+            {category.name}
+          </h1>
+          <p className="text-muted-foreground max-w-2xl">
+            {category.description}
+          </p>
         </div>
       </div>
 
@@ -69,11 +89,13 @@ export function CategoryPage({ category, products, slug }: CategoryPageProps) {
                   {category.subcategories.map((sub) => (
                     <li key={sub.slug}>
                       <Link
-                        href={`/danh-muc/${slug}/${sub.slug}`}
+                        href={`#`}
                         className="flex items-center justify-between py-2 text-foreground hover:text-navy-light transition-colors"
                       >
                         <span>{sub.name}</span>
-                        <span className="text-sm text-muted-foreground">({sub.count})</span>
+                        <span className="text-sm text-muted-foreground">
+                          ({sub.count})
+                        </span>
                       </Link>
                     </li>
                   ))}
@@ -109,10 +131,19 @@ export function CategoryPage({ category, products, slug }: CategoryPageProps) {
 
               {/* Promo Banner */}
               <div className="bg-navy rounded-xl p-6 text-primary-foreground">
-                <span className="text-gold text-xs font-semibold">Ưu đãi đặc biệt</span>
-                <h4 className="text-lg font-serif font-bold mt-1 mb-2">Giảm 20% cho đơn hàng đầu tiên</h4>
-                <p className="text-sm text-primary-foreground/70 mb-4">Sử dụng mã WELCOME20 khi thanh toán</p>
-                <Button size="sm" className="bg-gold text-navy hover:bg-gold-dark w-full">
+                <span className="text-gold text-xs font-semibold">
+                  Ưu đãi đặc biệt
+                </span>
+                <h4 className="text-lg font-serif font-bold mt-1 mb-2">
+                  Giảm 20% cho đơn hàng đầu tiên
+                </h4>
+                <p className="text-sm text-primary-foreground/70 mb-4">
+                  Sử dụng mã WELCOME20 khi thanh toán
+                </p>
+                <Button
+                  size="sm"
+                  className="bg-gold text-navy hover:bg-gold-dark w-full"
+                >
                   Áp dụng ngay
                 </Button>
               </div>
@@ -124,7 +155,11 @@ export function CategoryPage({ category, products, slug }: CategoryPageProps) {
             {/* Toolbar */}
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 pb-4 border-b border-border">
               <p className="text-muted-foreground">
-                Hiển thị <span className="text-foreground font-medium">{products.length}</span> sản phẩm
+                Hiển thị{" "}
+                <span className="text-foreground font-medium">
+                  {products.length}
+                </span>{" "}
+                sản phẩm
               </p>
 
               <div className="flex items-center gap-4">
@@ -148,7 +183,9 @@ export function CategoryPage({ category, products, slug }: CategoryPageProps) {
                     onClick={() => setViewMode("grid")}
                     className={cn(
                       "p-2 transition-colors",
-                      viewMode === "grid" ? "bg-navy text-primary-foreground" : "hover:bg-muted",
+                      viewMode === "grid"
+                        ? "bg-navy text-primary-foreground"
+                        : "hover:bg-muted"
                     )}
                     aria-label="Grid view"
                   >
@@ -158,7 +195,9 @@ export function CategoryPage({ category, products, slug }: CategoryPageProps) {
                     onClick={() => setViewMode("list")}
                     className={cn(
                       "p-2 transition-colors",
-                      viewMode === "list" ? "bg-navy text-primary-foreground" : "hover:bg-muted",
+                      viewMode === "list"
+                        ? "bg-navy text-primary-foreground"
+                        : "hover:bg-muted"
                     )}
                     aria-label="List view"
                   >
@@ -167,7 +206,11 @@ export function CategoryPage({ category, products, slug }: CategoryPageProps) {
                 </div>
 
                 {/* Mobile filter button */}
-                <Button variant="outline" size="icon" className="sm:hidden bg-transparent">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="sm:hidden bg-transparent"
+                >
                   <SlidersHorizontal className="h-4 w-4" />
                 </Button>
               </div>
@@ -177,11 +220,17 @@ export function CategoryPage({ category, products, slug }: CategoryPageProps) {
             <div
               className={cn(
                 "grid gap-4 lg:gap-6",
-                viewMode === "grid" ? "grid-cols-2 md:grid-cols-3 lg:grid-cols-4" : "grid-cols-1",
+                viewMode === "grid"
+                  ? "grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+                  : "grid-cols-1"
               )}
             >
               {products.map((product) => (
-                <ProductCard key={product.id} {...product} size={viewMode === "list" ? "large" : "default"} />
+                <ProductCard
+                  key={product.id}
+                  {...product}
+                  size={viewMode === "list" ? "large" : "default"}
+                />
               ))}
             </div>
 
@@ -198,5 +247,5 @@ export function CategoryPage({ category, products, slug }: CategoryPageProps) {
         </div>
       </div>
     </div>
-  )
+  );
 }

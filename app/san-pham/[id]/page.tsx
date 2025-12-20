@@ -1,7 +1,7 @@
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
-import { ProductDetail } from "@/components/product-detail"
-import { ProductSection } from "@/components/product-section"
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
+import { ProductDetail } from "@/components/product-detail";
+import { ProductSection } from "@/components/product-section";
 
 // Mock product data
 const productData = {
@@ -19,7 +19,11 @@ Sản phẩm cá hồi phi lê của An Vinh Food được nhập khẩu trực 
 - Đóng gói hút chân không để giữ trọn hương vị`,
   price: 289000,
   originalPrice: 370000,
-  images: ["/salmon-fillet-portion.jpg", "/whole-norwegian-salmon-fish.jpg", "/salmon-and-tuna-steaks.jpg"],
+  images: [
+    "/salmon-fillet-portion.jpg",
+    "/whole-norwegian-salmon-fish.jpg",
+    "/salmon-and-tuna-steaks.jpg",
+  ],
   unit: "Khay",
   weight: "500g",
   origin: "Na Uy",
@@ -39,8 +43,10 @@ Sản phẩm cá hồi phi lê của An Vinh Food được nhập khẩu trực 
     { name: "Vitamin B12", description: "Tốt cho hệ thần kinh" },
   ],
   usage: {
-    thawing: "Rã đông trong ngăn mát tủ lạnh 4-6 tiếng hoặc ngâm nước lạnh 30 phút",
-    cooking: "Có thể áp chảo, nướng, hấp hoặc ăn sashimi (với sản phẩm đạt chuẩn sashimi)",
+    thawing:
+      "Rã đông trong ngăn mát tủ lạnh 4-6 tiếng hoặc ngâm nước lạnh 30 phút",
+    cooking:
+      "Có thể áp chảo, nướng, hấp hoặc ăn sashimi (với sản phẩm đạt chuẩn sashimi)",
     note: "Sau khi rã đông nên sử dụng ngay, không cấp đông lại",
   },
   certifications: ["HACCP", "ISO 22000", "ASC"],
@@ -55,7 +61,7 @@ Sản phẩm cá hồi phi lê của An Vinh Food được nhập khẩu trực 
       { stars: 1, count: 1 },
     ],
   },
-}
+};
 
 const relatedProducts = [
   {
@@ -73,7 +79,7 @@ const relatedProducts = [
     description: "Cao cấp",
     price: 450000,
     originalPrice: 520000,
-    image: "/placeholder.svg?height=400&width=400",
+    image: "/whole-norwegian-salmon-fish.jpg",
     unit: "Hộp",
   },
   {
@@ -91,14 +97,16 @@ const relatedProducts = [
     description: "Việt Nam",
     price: 185000,
     originalPrice: 220000,
-    image: "/placeholder.svg?height=400&width=400",
+    image: "/whole-norwegian-salmon-fish.jpg",
     unit: "Khay",
   },
-]
+];
 
-export default async function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params
-
+export default async function ProductDetailPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
   return (
     <div className="min-h-screen">
       <Header />
@@ -117,5 +125,5 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
       </main>
       <Footer />
     </div>
-  )
+  );
 }

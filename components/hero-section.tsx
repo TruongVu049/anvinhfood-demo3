@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const slides = [
   {
@@ -22,7 +22,8 @@ const slides = [
     id: 2,
     badge: "MỚI VỀ",
     title: "Cá Hồi Na Uy\nPhile Tươi Đông Lạnh",
-    description: "Giàu Omega-3, thịt ngọt tự nhiên. Đóng gói hút chân không, bảo quản chuẩn -18°C.",
+    description:
+      "Giàu Omega-3, thịt ngọt tự nhiên. Đóng gói hút chân không, bảo quản chuẩn -18°C.",
     image: "/fresh-norwegian-salmon-fillet-on-wooden-board.jpg",
     link: "/san-pham/ca-hoi-na-uy",
     bgColor: "bg-cream-dark",
@@ -31,25 +32,27 @@ const slides = [
     id: 3,
     badge: "COMBO TIẾT KIỆM",
     title: "Bữa Tối Gia Đình\nChỉ Từ 299K",
-    description: "Combo đầy đủ dinh dưỡng cho 4 người. Tiết kiệm 25% so với mua lẻ. Miễn phí giao hàng.",
-    image: "/family-seafood-dinner-table-with-shrimp-crab-fish.jpg",
+    description:
+      "Combo đầy đủ dinh dưỡng cho 4 người. Tiết kiệm 25% so với mua lẻ. Miễn phí giao hàng.",
+    image: "/premium-frozen-lobster-and-king-crab-on-ice.jpg",
     link: "/combo/bua-toi-gia-dinh",
     bgColor: "bg-ice-blue",
   },
-]
+];
 
 export function HeroSection() {
-  const [currentSlide, setCurrentSlide] = useState(0)
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length)
-    }, 6000)
-    return () => clearInterval(timer)
-  }, [])
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 8000);
+    return () => clearInterval(timer);
+  }, []);
 
-  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length)
-  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
+  const prevSlide = () =>
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
     <section className="relative overflow-hidden">
@@ -59,20 +62,24 @@ export function HeroSection() {
       >
         {slides.map((slide, index) => (
           <div key={slide.id} className="w-full flex-shrink-0">
-            <div className={cn("min-h-[500px] md:min-h-[600px] lg:min-h-[700px]", slide.bgColor)}>
+            <div className={cn("lg:py-16 ", slide.bgColor)}>
               <div className="container mx-auto px-4 h-full">
                 <div className="grid lg:grid-cols-2 gap-8 items-center h-full py-12 lg:py-0">
                   {/* Content */}
                   <div
                     className={cn(
                       "order-2 lg:order-1 text-center lg:text-left",
-                      index === 0 ? "text-primary-foreground" : "text-foreground",
+                      index === 0
+                        ? "text-primary-foreground"
+                        : "text-foreground"
                     )}
                   >
                     <span
                       className={cn(
                         "inline-block px-4 py-1.5 text-xs font-semibold tracking-wider rounded-full mb-4",
-                        index === 0 ? "bg-gold text-navy" : "bg-navy text-primary-foreground",
+                        index === 0
+                          ? "bg-gold text-navy"
+                          : "bg-navy text-primary-foreground"
                       )}
                     >
                       {slide.badge}
@@ -83,7 +90,9 @@ export function HeroSection() {
                     <p
                       className={cn(
                         "text-base md:text-lg mb-8 max-w-md mx-auto lg:mx-0 leading-relaxed",
-                        index === 0 ? "text-primary-foreground/80" : "text-muted-foreground",
+                        index === 0
+                          ? "text-primary-foreground/80"
+                          : "text-muted-foreground"
                       )}
                     >
                       {slide.description}
@@ -95,7 +104,7 @@ export function HeroSection() {
                           "group rounded-full px-8",
                           index === 0
                             ? "bg-gold text-navy hover:bg-gold-dark"
-                            : "bg-navy text-primary-foreground hover:bg-navy-light",
+                            : "bg-navy text-primary-foreground hover:bg-navy-light"
                         )}
                       >
                         Xem ngay
@@ -147,12 +156,14 @@ export function HeroSection() {
             onClick={() => setCurrentSlide(index)}
             className={cn(
               "w-2 h-2 rounded-full transition-all",
-              currentSlide === index ? "bg-navy w-8" : "bg-navy/30 hover:bg-navy/50",
+              currentSlide === index
+                ? "bg-navy w-8"
+                : "bg-navy/30 hover:bg-navy/50"
             )}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
       </div>
     </section>
-  )
+  );
 }
