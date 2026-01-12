@@ -72,10 +72,10 @@ export function ProductDetail({ product }: ProductDetailProps) {
             </Link>
             <ChevronRight className="h-4 w-4 text-muted-foreground" />
             <Link
-              href="/danh-muc/hai-san"
+              href="/danh-muc/vat-lieu"
               className="text-muted-foreground hover:text-foreground"
             >
-              Hải sản
+              Vật liệu
             </Link>
             <ChevronRight className="h-4 w-4 text-muted-foreground" />
             <span className="text-foreground font-medium line-clamp-1">
@@ -277,7 +277,7 @@ export function ProductDetail({ product }: ProductDetailProps) {
               <div className="grid grid-cols-3 gap-4 p-4 bg-cream rounded-xl">
                 <div className="text-center">
                   <Truck className="h-6 w-6 mx-auto text-navy mb-2" />
-                  <p className="text-xs font-medium">Giao lạnh 2h</p>
+                  <p className="text-xs font-medium">Giao tận nơi</p>
                 </div>
                 <div className="text-center">
                   <Shield className="h-6 w-6 mx-auto text-navy mb-2" />
@@ -285,7 +285,7 @@ export function ProductDetail({ product }: ProductDetailProps) {
                 </div>
                 <div className="text-center">
                   <Snowflake className="h-6 w-6 mx-auto text-navy mb-2" />
-                  <p className="text-xs font-medium">Chuẩn -18°C</p>
+                  <p className="text-xs font-medium">Chính hãng 100%</p>
                 </div>
               </div>
             </div>

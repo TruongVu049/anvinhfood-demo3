@@ -1,140 +1,79 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
-  Facebook,
-  Instagram,
-  Youtube,
   Phone,
   Mail,
   MapPin,
+  Building2,
 } from "lucide-react";
-import Image from "next/image";
-
-const footerLinks = {
-  "Đặt hàng & Hỗ trợ": [
-    { name: "Hỏi đáp", href: "/hoi-dap" },
-    { name: "Hướng dẫn mua hàng", href: "/huong-dan-mua-hang" },
-    { name: "Chính sách bán hàng", href: "/chinh-sach-ban-hang" },
-    { name: "Chính sách bảo mật", href: "/chinh-sach-bao-mat" },
-    { name: "Điều kiện chung", href: "/dieu-kien-chung" },
-    { name: "Liên hệ chúng tôi", href: "/lien-he" },
-  ],
-  "Danh mục": [
-    { name: "Hải sản tươi sống", href: "/danh-muc/hai-san" },
-    { name: "Thịt đông lạnh", href: "/danh-muc/thit" },
-    { name: "Rau củ đông lạnh", href: "/danh-muc/rau-cu" },
-    { name: "Đồ ăn chế biến", href: "/danh-muc/che-bien" },
-    { name: "Combo tiết kiệm", href: "/combo" },
-  ],
-  "Về An Vinh Food": [
-    { name: "Câu chuyện thương hiệu", href: "/ve-chung-toi" },
-    { name: "Giá trị cốt lõi", href: "/gia-tri-cot-loi" },
-    { name: "Trách nhiệm cộng đồng", href: "/trach-nhiem-cong-dong" },
-    { name: "Quy trình sản xuất", href: "/quy-trinh-san-xuat" },
-    { name: "Đối tác cung ứng", href: "/doi-tac" },
-  ],
-};
-
-const socialLinks = [
-  { name: "Facebook", icon: Facebook, href: "https://facebook.com" },
-  { name: "Instagram", icon: Instagram, href: "https://instagram.com" },
-  { name: "Youtube", icon: Youtube, href: "https://youtube.com" },
-];
 
 export function Footer() {
   return (
     <footer className="bg-navy text-primary-foreground">
-      <div className="container mx-auto px-4 py-12 lg:py-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
-          {/* Brand */}
-          <div className="col-span-2 md:col-span-1">
-            <Link href="/" className="inline-block mb-4">
-              <div className=" relative z-10flex items-center gap-2">
-                <Image
-                  src="/logo.png"
-                  alt="Frozen Food Logo"
-                  width={48}
-                  height={48}
-                  className="w-44 h-auto object-contain"
-                />
+      <div className="container mx-auto px-3 sm:px-4 py-8 sm:py-12 lg:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
+          {/* Trụ sở chính */}
+          <div>
+            <h3 className="font-bold text-base sm:text-lg text-primary-foreground mb-4 sm:mb-6">TRỤ SỞ CHÍNH</h3>
+            <div className="space-y-3 sm:space-y-4">
+              <div className="flex items-start gap-2 sm:gap-3 text-xs sm:text-sm">
+                <MapPin className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-gold shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-medium text-primary-foreground">Văn phòng đại diện:</p>
+                  <p className="text-primary-foreground/70 leading-relaxed">
+                    L17-11, Tầng 17 Vincom Center, 72 đường Lê Thánh Tôn, Phường Sài Gòn, Thành phố Hồ Chí Minh, Việt Nam
+                  </p>
+                </div>
               </div>
-            </Link>
-            <p className="text-sm text-primary-foreground/70 mb-6 leading-relaxed">
-              Chuyên cung cấp thực phẩm đông lạnh và hải sản cao cấp. Cam kết
-              tươi ngon, an toàn, giao hàng nhanh.
-            </p>
-
-            {/* Contact info */}
-            <div className="space-y-3">
-              <div className="flex items-center gap-3 text-sm">
-                <Phone className="h-4 w-4 text-gold" />
-                <span>0813662778</span>
+              <div className="flex items-start gap-2 sm:gap-3 text-xs sm:text-sm">
+                <Building2 className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-gold shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-medium text-primary-foreground">Văn phòng phát triển:</p>
+                  <p className="text-primary-foreground/70">
+                    03 Sông Thao, Phường Tân Sơn Hoà, Thành phố Hồ Chí Minh, Việt Nam
+                  </p>
+                </div>
               </div>
-              <div className="flex items-center gap-3 text-sm">
-                <Mail className="h-4 w-4 text-gold" />
-                <span>anvinhfood.official@gmail.com</span>
+              <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm">
+                <Phone className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-gold" />
+                <span className="text-primary-foreground/70">Hotline: (+84) 2841099879</span>
               </div>
-              <div className="flex items-start gap-3 text-sm">
-                <MapPin className="h-4 w-4 text-gold flex-shrink-0 mt-0.5" />
-                <span className="text-primary-foreground/70">
-                  87/23 Khu phố 4, đường Phan Văn Hớn, Phường Tân Thới Nhất,
-                  Quận 12, Tp HCM
-                </span>
+              <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm">
+                <Mail className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-gold" />
+                <span className="text-primary-foreground/70 break-all">contact@meu-solutions.com</span>
+              </div>
+              <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm">
+                <svg className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-gold shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                </svg>
+                <span className="text-primary-foreground/70">www.meu-solutions.com</span>
               </div>
             </div>
           </div>
 
-          {/* Links */}
-          {Object.entries(footerLinks).map(([title, links]) => (
-            <div key={title}>
-              <h3 className="font-semibold text-gold mb-4">{title}</h3>
-              <ul className="space-y-2">
-                {links.map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+          {/* Về chúng tôi */}
+          <div>
+            <h3 className="font-bold text-base sm:text-lg text-primary-foreground mb-4 sm:mb-6">VỀ CHÚNG TÔI</h3>
+            <p className="text-xs sm:text-sm text-primary-foreground/70 leading-relaxed mb-6 sm:mb-8">
+              MeU Solutions là đơn vị hàng đầu trong việc kiểm thử và phát triển phần mềm máy tính, mang đến sự đổi mới để cung cấp các giải pháp phù hợp cho khách hàng với kết quả vượt trội.
+            </p>
+
+            <h3 className="font-bold text-base sm:text-lg text-primary-foreground mb-3 sm:mb-4">HÌNH ẢNH</h3>
+            <div className="flex gap-2">
+              <div className="w-16 h-12 sm:w-24 sm:h-16 rounded overflow-hidden relative">
+                <Image src="/về chúng tôi 1.png" alt="Về chúng tôi" fill className="object-cover" />
+              </div>
+              <div className="w-16 h-12 sm:w-24 sm:h-16 rounded overflow-hidden relative">
+                <Image src="/về chúng tôi 2.png" alt="Về chúng tôi" fill className="object-cover" />
+              </div>
             </div>
-          ))}
+          </div>
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-primary-foreground/10 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            <div className="text-sm text-primary-foreground/50">
-              <p className="font-semibold text-primary-foreground/70 mb-1">
-                CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ AN VINH
-              </p>
-              <p>
-                GPKD số: 0123456789 - Cấp ngày: 01/01/2020 tại Sở KH&ĐT TP.HCM
-              </p>
-              <p>Địa chỉ: 123 Đường ABC, Phường XYZ, Quận 1, TP. Hồ Chí Minh</p>
-            </div>
-
-            {/* Social links */}
-            <div className="flex items-center gap-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-gold hover:text-navy transition-colors"
-                  aria-label={social.name}
-                >
-                  <social.icon className="h-5 w-5" />
-                </a>
-              ))}
-            </div>
-          </div>
-
-          <div className="mt-6 pt-6 border-t border-primary-foreground/10 text-center text-xs text-primary-foreground/50">
-            © 2025 An Vinh Food. Tất cả quyền được bảo lưu.
+        <div className="border-t border-primary-foreground/10 mt-8 sm:mt-12 pt-6 sm:pt-8">
+          <div className="text-center text-[10px] sm:text-xs text-primary-foreground/50">
+            © 2026 MeU Solutions. All rights reserved.
           </div>
         </div>
       </div>

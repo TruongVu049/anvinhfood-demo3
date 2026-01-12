@@ -14,40 +14,40 @@ import { Footer } from "@/components/footer";
 const bestSellerProducts = [
   {
     id: "bs1",
-    name: "Cá hồi Na Uy nguyên con đông lạnh 2-3kg",
-    description: "Nhập khẩu chính ngạch",
-    price: 890000,
-    originalPrice: 1100000,
-    image: "/king-crab-alaska.jpg",
-    unit: "Con",
+    name: "Xi măng Hà Tiên PCB40 - Bao 50kg",
+    description: "Chính hãng",
+    price: 95000,
+    originalPrice: 110000,
+    image: "/xi măng4.png",
+    unit: "Bao",
   },
   {
     id: "bs2",
-    name: "Tôm hùm Alaska size L đông lạnh 500g",
+    name: "Thép Pomina phi 12 - Cây 12m",
     description: "Hàng cao cấp",
-    price: 650000,
-    originalPrice: 720000,
-    image: "/king-crab-alaska.jpg",
+    price: 250000,
+    originalPrice: 280000,
+    image: "/thép4.png",
     badge: "Hot",
-    unit: "Hộp",
+    unit: "Cây",
   },
   {
     id: "bs3",
-    name: "Cua hoàng đế Alaska nguyên con 1.5kg",
+    name: "Gạch men 80x80 Viglacera",
     description: "Đặc biệt",
-    price: 1850000,
-    image: "/king-crab-alaska.jpg",
-    badge: "Mua 1 tặng 1",
-    unit: "Con",
+    price: 285000,
+    image: "/gạch4.png",
+    badge: "Mua 10 tặng 1",
+    unit: "m²",
   },
   {
     id: "bs4",
-    name: "Sò điệp Nhật Bản size L đông lạnh 500g",
+    name: "Sơn Jotun Essence 18L",
     description: "Cao cấp",
-    price: 380000,
-    originalPrice: 450000,
-    image: "/king-crab-alaska.jpg",
-    unit: "Hộp",
+    price: 1650000,
+    originalPrice: 1850000,
+    image: "/colorpanting4.png",
+    unit: "Thùng",
   },
 ];
 
@@ -63,17 +63,17 @@ export default function HomePage() {
         {/* Featured Product - Cocoon style */}
         <FeaturedProduct
           subtitle="Sản phẩm nổi bật"
-          title="Tôm Sú Hấp"
-          description="Tôm sú được đánh bắt tự nhiên từ vùng biển sạch Phú Quốc, cấp đông ngay tại tàu để giữ trọn độ tươi ngon và dinh dưỡng. Thịt tôm chắc, ngọt tự nhiên, không chất bảo quản."
+          title="Xi Măng Hà Tiên"
+          description="Xi măng PCB40 chất lượng cao, độ bền vượt trội, phù hợp cho mọi công trình từ dân dụng đến công nghiệp. Sản xuất theo tiêu chuẩn TCVN, đảm bảo chất lượng."
           features={[
-            "Đánh bắt tự nhiên 100%",
-            "Cấp đông IQF -40°C ngay trên tàu",
-            "Không chứa kháng sinh, hóa chất",
-            "Đóng gói hút chân không",
-            "Hướng dẫn chế biến chi tiết kèm theo",
+            "Cường độ nén cao, đạt chuẩn PCB40",
+            "Thời gian đông kết ổn định",
+            "Chống thấm, chống nứt hiệu quả",
+            "Bao bì chống ẩm, bảo quản tốt",
+            "Giao hàng tận công trình",
           ]}
-          image="/banner1.png"
-          href="/san-pham/tom-su-tu-nhien"
+          image="/xi măng5.png"
+          href="/san-pham/xi-mang-ha-tien"
         />
 
         {/* Flash Sale */}
@@ -81,18 +81,18 @@ export default function HomePage() {
 
         {/* Featured Product 2 - Reversed */}
         <FeaturedProduct
-          subtitle="Hải sản cao cấp"
-          title="Vay Cá Hồi"
-          description="Cá hồi được nuôi tại các trang trại đạt chuẩn ASC, giàu Omega-3 tốt cho tim mạch và trí não. Phi lê không xương, tiện lợi cho mọi món ăn từ sashimi đến nướng."
+          subtitle="Vật liệu cao cấp"
+          title="Thép Pomina"
+          description="Thép xây dựng Pomina đạt tiêu chuẩn quốc tế, độ bền kéo cao, chống gỉ sét. Phù hợp cho kết cấu bê tông cốt thép, móng, cột, dầm."
           features={[
-            "Nguồn gốc rõ ràng",
-            "Giàu Omega-3 và protein",
-            "Phi lê không xương, không da",
-            "Bảo quản -18°C đến 12 tháng",
-            "Phù hợp ăn sống hoặc chế biến",
+            "Đạt tiêu chuẩn TCVN và JIS",
+            "Độ bền kéo cao, dẻo dai",
+            "Bề mặt gân xoắn bám dính tốt",
+            "Đa dạng kích thước phi 6-32",
+            "Chứng nhận CO, CQ đầy đủ",
           ]}
-          image="/banner2.png"
-          href="/san-pham/ca-hoi-na-uy"
+          image="/thép5.png"
+          href="/san-pham/thep-pomina"
           reversed
         />
 

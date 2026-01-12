@@ -24,21 +24,21 @@ export function FeaturedProduct({
   reversed = false,
 }: FeaturedProductProps) {
   return (
-    <section className="py-16 lg:py-24 overflow-hidden">
-      <div className="container mx-auto px-4">
-        <div className={`grid lg:grid-cols-2 gap-12 lg:gap-20 items-center ${reversed ? "lg:flex-row-reverse" : ""}`}>
+    <section className="py-8 sm:py-12 lg:py-24 overflow-hidden">
+      <div className="container mx-auto px-3 sm:px-4">
+        <div className={`grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-20 items-center ${reversed ? "lg:flex-row-reverse" : ""}`}>
           {/* Image */}
           <div className={`relative ${reversed ? "lg:order-2" : ""}`}>
-            <div className="relative aspect-square max-w-lg mx-auto">
-              <div className="absolute inset-0 bg-cream rounded-3xl -rotate-3" />
+            <div className="relative aspect-square max-w-xs sm:max-w-sm lg:max-w-lg mx-auto">
+              <div className="absolute inset-0 bg-cream rounded-2xl sm:rounded-3xl -rotate-3" />
               <Image
                 src={image || "/placeholder.svg"}
                 alt={title}
                 fill
-                className="object-cover rounded-3xl relative z-10 shadow-xl"
+                className="object-cover rounded-2xl sm:rounded-3xl relative z-10 shadow-xl"
               />
               {/* Floating badge */}
-              <div className="absolute -bottom-4 -right-4 z-20 bg-gold text-navy px-6 py-3 rounded-full font-semibold shadow-lg">
+              <div className="absolute -bottom-2 -right-2 sm:-bottom-4 sm:-right-4 z-20 bg-gold text-navy px-3 sm:px-6 py-1.5 sm:py-3 rounded-full font-semibold shadow-lg text-xs sm:text-base">
                 MỚI
               </div>
             </div>
@@ -46,15 +46,15 @@ export function FeaturedProduct({
 
           {/* Content */}
           <div className={`${reversed ? "lg:order-1" : ""}`}>
-            <span className="text-sm font-medium text-gold-dark tracking-wider uppercase">{subtitle}</span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-navy mt-2 mb-6">{title}</h2>
-            <p className="text-muted-foreground text-lg leading-relaxed mb-8">{description}</p>
+            <span className="text-xs sm:text-sm font-medium text-gold-dark tracking-wider uppercase">{subtitle}</span>
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-serif font-bold text-navy mt-1 sm:mt-2 mb-3 sm:mb-6">{title}</h2>
+            <p className="text-muted-foreground text-sm sm:text-base lg:text-lg leading-relaxed mb-4 sm:mb-8">{description}</p>
 
             {/* Features */}
-            <ul className="space-y-3 mb-8">
+            <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-8">
               {features.map((feature, index) => (
-                <li key={index} className="flex items-center gap-3 text-foreground">
-                  <span className="w-2 h-2 rounded-full bg-gold flex-shrink-0" />
+                <li key={index} className="flex items-center gap-2 sm:gap-3 text-foreground text-sm sm:text-base">
+                  <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gold shrink-0" />
                   {feature}
                 </li>
               ))}
@@ -62,10 +62,10 @@ export function FeaturedProduct({
 
             <Link
               href={href}
-              className="inline-flex items-center gap-2 text-navy font-medium hover:text-navy-light transition-colors group"
+              className="inline-flex items-center gap-1.5 sm:gap-2 text-navy font-medium hover:text-navy-light transition-colors group text-sm sm:text-base"
             >
               Xem thêm
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
         </div>
